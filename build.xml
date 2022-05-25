@@ -6,6 +6,7 @@
 	</ItemGroup>
 
 	<Target Name="web">
+		<Exec Command='nuget restore src\WebApiNet48'></Exec>
 		<MSBuild Projects="@(ProjectToBuildWeb)" />
 	</Target>
 
