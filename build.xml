@@ -11,6 +11,6 @@
 	</Target>
 
   <Target Name="test">
-    <Exec Command='dotnet test src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj --logger:"trx;logFileName=report1.xml"'></Exec>
+    <Exec Command='dotnet test src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj'></Exec>
   </Target>
 </Project>
