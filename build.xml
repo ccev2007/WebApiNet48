@@ -2,7 +2,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolVersion="16.0">
   <Target Name="test">
 	<PropertyGroup>
-      <CurrentDate>$(UNIT_TEST_REPORT_FOLDER)\TestResult-$([System.DateTime]::Now.ToString(yyyyMMdd-hhmmss))</CurrentDate>
+      <CurrentDate>$(UNIT_TEST_REPORT_FOLDER)\WebApiNet48Test\TestResult-$([System.DateTime]::Now.ToString(yyyyMMdd-hhmmss))</CurrentDate>
     </PropertyGroup>
     <Exec Command='dotnet test src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj --logger:"trx;logFileName=$(CurrentDate).xml'></Exec>
   </Target>
