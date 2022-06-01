@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolVersion="16.0">
-	<ItemGroup>
-		<ProjectToBuildWeb Include="src\WebApiNet48\WebApiNet48\WebApiNet48.csproj" />
-		<ProjectToBuildWeb Include="src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj" />
-	</ItemGroup>
-
-	<Target Name="web">
-		<Exec Command='nuget restore src\WebApiNet48'></Exec>
-		<MSBuild Projects="@(ProjectToBuildWeb)" />
-	</Target>
-
   <Target Name="test">
-    <Exec Command='dotnet test src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj --logger:"trx;logFileName=%UNIT_TEST_REPORT_FOLDER%\WebApiNet48\report_%DATE:/=-%-%TIME::=%.xml'></Exec>
+	<PropertyGroup>
+      <CurrentDate>$(UNIT_TEST_REPORT_FOLDER)\TestResult-$([System.DateTime]::Now.ToString(yyyyMMdd-hhmmss))</CurrentDate>
+    </PropertyGroup>
+    <Exec Command='dotnet test src\WebApiNet48\WebApiNet48Test\WebApiNet48Test.csproj --logger:"trx;logFileName=$(CurrentDate).xml'></Exec>
   </Target>
 </Project>
